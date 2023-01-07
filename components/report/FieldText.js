@@ -6,9 +6,7 @@ const FieldText = (props) => {
             <div>
                 This {props.text}:
             </div>
-            <div className={classes.field_image}>
-                {props.title}
-            </div>
+            <input type='text' defaultValue={props.title} className={classes.field_image}/>
         </div>
     );
 }

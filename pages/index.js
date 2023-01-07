@@ -1,35 +1,31 @@
 import NewsBody from "../components/news/NewsBody";
+//import { getServerSideProps } from 'next';
 
-const HomePage = () => {
-
-    const DUMMY_NEWS = [
-        {
-            id: '1',
-            title: 'Mondo del calcio ancora in lutto: si è spento Gianluca Vialli',
-            description: 'Il mondo del calcio colpito ancora da un grande lutto. Si è spento all&#8217;età di 58 anni Gianluca Vialli, che combatteva da tempo contro una brutta malattia. Il mondo del&#8230; L\'articolo Mondo del calcio ancora in lutto: si è spento Gianluca Vialli è stato pubblicato originariamente sul sito calciomercatonews.com',
-            published_at: '2023-01-06T10:15:31+00:00',
-            url: 'https://www.calciomercatonews.com/2023/01/06/gianluca-vialli-morte-malattia-sinisa-mihajlovic-londra/'
-        },
-        {
-            id: '2',
-            title: 'Via dalla Juve “in prestito”: annuncio in diretta',
-            description: 'Il mondo del calcio è ancora in lutto per la scomparsa di Pelé, ma oggi si è parlato anche di calciomercato e di colpi passati e futuri che coinvolgono la&#8230; L\'articolo Via dalla Juve &#8220;in prestito&#8221;: annuncio in diretta è stato pubblicato originariamente sul sito calciomercatonews.com.',
-            published_at: '2022-12-30T18:17:21+00:00',
-            url: 'https://www.calciomercatonews.com/2023/01/06/gianluca-vialli-morte-malattia-sinisa-mihajlovic-londra/'
-        },
-        {
-            id: '3',
-            title: 'Il mondo del calcio piange Pelé: O Rei si è spento',
-            description: 'Giorno di lutto nel mondo del calcio: si è spento a 82 anni O Rei, Pelé Oggi è un giorno triste per il mondo del calcio e non solo. All&#8217;età&#8230; L\'articolo Il mondo del calcio piange Pelé: O Rei si è spento è stato pubblicato originariamente sul sito calciomercatonews.com.',
-            published_at: '2022-12-29T20:47:01+00:00',
-            url: 'https://www.calciomercatonews.com/2023/01/06/gianluca-vialli-morte-malattia-sinisa-mihajlovic-londra/'
-        }
-    ];
-
+export default function HomePage({ data }) {
 
     return (
-            <NewsBody news={DUMMY_NEWS} />
+        <NewsBody news={data} />
     );
 }
 
-export default HomePage;
+export async function getServerSideProps() {
+
+    const key = '?access_key=50c24f7eeea911014e455695584049a5';
+    const language = '&languages=it';
+    const sort = '&sort=published_desc';
+    const keyWord = '&keywords=calcio';
+    const source = '&sources=calciomercatonews';
+    const limit = '&limit=10';
+    const string = 'http://api.mediastack.com/v1/news';
+
+    const url = string + key + language + sort + keyWord + source + limit;
+
+    const res = await fetch(url);
+    let newsData = await res.json();
+
+    return {
+        props: {
+            data: newsData,
+        },
+    };
+};

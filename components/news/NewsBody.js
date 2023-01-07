@@ -1,13 +1,15 @@
 import classes from './NewsBody.module.css';
 import NewsCard from './NewsCard';
 
-const NewsBody = (props) => {
-    return(
+const NewsBody = ({ news }) => {
+
+    console.log('news', news);
+
+    return (
         <div className={classes.news_body}>
-            {props.news.map((news) => (
-                <NewsCard 
-                    key={news.id}
-                    id={news.id}
+            {news.data.map((news, key) => (
+                <NewsCard
+                    key={key}
                     title={news.title}
                     description={news.description}
                     date={news.published_at}
