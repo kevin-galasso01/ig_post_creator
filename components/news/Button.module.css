@@ -1,0 +1,31 @@
+.news_button {
+    width: 100px;
+    height: 100px;
+    background-color: #1DB954;
+    cursor: pointer;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    -webkit-text-stroke: 1px white;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    text-decoration: none;
+}
+
+.container_button {
+    width: 150px;
+    height: calc(20vh - 3px - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+@media only screen and (max-width: 600px) {
+    .container_button {
+        height: 10vh;
+    }
+}
