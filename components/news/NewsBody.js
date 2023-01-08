@@ -3,8 +3,6 @@ import NewsCard from './NewsCard';
 
 const NewsBody = ({ news }) => {
 
-    console.log('news', news);
-
     return (
         <div className={classes.news_body}>
             {news.data.map((news, key) => (

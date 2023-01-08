@@ -1,0 +1,12 @@
+.post_image {
+    width: 1080px;
+    height: 1080px;
+    border: 2px solid black;
+}
+
+@media only screen and (max-width: 1300px) {
+    .post_image {
+        width: 420px;
+        height: 654px;
+    }
+}

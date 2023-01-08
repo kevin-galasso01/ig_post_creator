@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import FieldDesc from '../components/report/FieldDesc';
+import ReportImage from '../components/report/ReportImage';
 import classes from '../styles/PostGeneratorPage.module.css'
 
 const Report = () => {
@@ -7,9 +8,7 @@ const Report = () => {
     return (
         <div className={classes.report}>
 
-            <div className={classes.post_image}>
-
-            </div>
+            <ReportImage />
 
             <FieldDesc
                 text='description'
