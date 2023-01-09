@@ -6,7 +6,7 @@ const FieldDesc = (props) => {
             <div>
                 {props.text}:
             </div>
-            <textarea type='text' defaultValue={props.title} className={classes.field_image2}/>
+            <textarea type='text' defaultValue={props.title} className={classes.field_image2} id='img_desc'/>
         </div>
     );
 }
