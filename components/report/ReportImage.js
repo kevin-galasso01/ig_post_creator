@@ -8,7 +8,8 @@ const ReportImage = (props) => {
             alt="Picture Generated"
             width="1080px"
             height="1080px" 
-            className={classes.post_image} />
+            className={classes.post_image} 
+            id='post_image'/>
     );
 }
 

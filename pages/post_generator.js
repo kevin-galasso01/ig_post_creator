@@ -29,7 +29,6 @@ function PostGeneratorPage({ title, description, url }) {
 
             if (response.ok) {
 
-                console.log(json);
                 Router.push({
                     pathname: './Report',
                     query: {

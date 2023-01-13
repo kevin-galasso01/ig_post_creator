@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.1",
+    "fs": "^0.0.1-security",
     "instagram-private-api": "^1.45.3",
     "next": "13.1.1",
     "react": "18.2.0",
