@@ -1,7 +1,6 @@
 import FieldDesc from '../components/report/FieldDesc';
 import ReportImage from '../components/report/ReportImage';
 import classes from '../styles/PostGeneratorPage.module.css';
-import imgGenerated from '../images/image_generated.jpg';
 import imgError from '../images/image_error.png';
 import { useState } from 'react';
 import Router from 'next/router';
@@ -18,7 +17,7 @@ const Report = ({ img_generated, post_description }) => {
         if (buttonF == 'public') {
 
             const formData = {
-                post_image: event.target.post_image.value,
+                post_image: event.target.post_image.src.split("/").pop(),
                 img_desc: event.target.img_desc.value
             }
 
@@ -72,7 +71,7 @@ const Report = ({ img_generated, post_description }) => {
                 <form className={classes.report} onSubmit={handleSubmit}>
 
                     {{ img_generated } ?
-                        <ReportImage image={imgGenerated} /> :
+                        <ReportImage image={img_generated} /> :
                         <ReportImage image={imgError} />}
 
                     <FieldDesc

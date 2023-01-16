@@ -10,7 +10,7 @@ const Error = ({ error_text }) => {
     );
 }
 
-Report.getInitialProps = async ({ query }) => {
+Error.getInitialProps = async ({ query }) => {
     const { error_text } = query;
 
     return { error_text }

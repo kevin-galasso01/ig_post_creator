@@ -59,7 +59,7 @@
     top: -10px;
     border-radius: 50%;
     z-index: -1;
-    background: linear-gradient(#400080, transparent), linear-gradient(200deg, #F56040, #F56040, #F56040);
+    background: linear-gradient(#400000, transparent), linear-gradient(200deg, red, red, red);
     animation: spin 3s linear infinite;
     content: '';
 }

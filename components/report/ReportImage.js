@@ -1,15 +1,18 @@
-import classes from './ReportImage.module.css';
 import Image from 'next/image';
+import classes from './ReportImage.module.css';
+
 
 const ReportImage = (props) => {
 
     return (
-        <Image src={props.image}
+        <Image
+            loader={() => props.image}
+            src={props.image}
             alt="Picture Generated"
-            width="1080px"
-            height="1080px" 
-            className={classes.post_image} 
-            id='post_image'/>
+            width={1080}
+            height={1080}
+            className={classes.post_image}
+            id='post_image' />
     );
 }
 

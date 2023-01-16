@@ -1,6 +1,6 @@
 import { readFile } from 'fs';
 import { promisify } from 'util';
-import { setTimeout } from "timers/promises";
+//import { setTimeout } from "timers/promises";
 const { IgApiClient } = require('instagram-private-api');
 const IG_USERNAME = "_fierynews"
 const IG_PASSWORD = "FieryNews00!"
@@ -10,30 +10,30 @@ export default async function handler(req, res) {
 
   try {
     // Get data submitted in request's body.
-    const { img_desc } = req.body
-    const image = './images/image_generated.jpg';
-
+    const { post_image, img_desc } = req.body
 
     // Optional logging to see the responses
     // in the command line where next.js app is running.
     console.log('img_desc: ', img_desc);
-    console.log('image: ', image);
+    console.log('image: ', post_image);
+
+    let image = decodeURI(post_image);
 
     //logginning to instagram
     console.log('start loginning ');
-    /*const ig = new IgApiClient();
+
+    const ig = new IgApiClient();
     ig.state.generateDevice(IG_USERNAME);
-    await ig.account.login(IG_USERNAME, IG_PASSWORD);*/
-    await setTimeout(5000);
+    await ig.account.login(IG_USERNAME, IG_PASSWORD);
     
     console.log('end loginning ');
     //post image to instagram
     console.log('start posting img ');
     
-    /*await ig.publish.photo({
-      file: await readFileAsync(image),
+    await ig.publish.photo({
+      file: image,
       caption: img_desc,
-    });*/
+    });
 
     console.log('end posting img ');
 
