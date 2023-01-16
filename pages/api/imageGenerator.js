@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: process.env.OPENAI_APIKEY,
 });
 
 export default async function handler(req, res) {
@@ -26,7 +26,6 @@ export default async function handler(req, res) {
       size: "1024x1024",
     });
 
-    //const image_url = 'https://www.unrespirodisalute.it/wp-content/uploads/2020/01/image003-1024x1024.jpg';
     console.log(response.data.data[0].url);
     let image_url = response.data.data[0].url;
 

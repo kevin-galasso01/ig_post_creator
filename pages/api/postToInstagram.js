@@ -1,10 +1,7 @@
-import { readFile } from 'fs';
-import { promisify } from 'util';
 //import { setTimeout } from "timers/promises";
 const { IgApiClient } = require('instagram-private-api');
-const IG_USERNAME = "_fierynews"
-const IG_PASSWORD = "FieryNews00!"
-const readFileAsync = promisify(readFile);
+const IG_USERNAME = process.env.IG_USERNAME;
+const IG_PASSWORD = process.env.IG_PASSWORD
 
 export default async function handler(req, res) {
 

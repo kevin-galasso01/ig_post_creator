@@ -10,13 +10,13 @@ export default function HomePage({ data }) {
 
 export async function getServerSideProps() {
 
-    const key = '?access_key=50c24f7eeea911014e455695584049a5';
+    const key = process.env.MEDIASTACK_APIKET;
     const language = '&languages=it';
     const sort = '&sort=published_desc';
     const keyWord = '&keywords=calcio';
     const source = '&sources=calciomercatonews';
     const limit = '&limit=10';
-    const string = 'http://api.mediastack.com/v1/news';
+    const string = process.env.URL;
 
     const url = string + key + language + sort + keyWord + source + limit;
 
